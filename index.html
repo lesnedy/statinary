@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>J.O. ENTERPRISES - Stationery Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(120deg, #ffecd2 0%, #fcb69f 100%);
+      color: #333;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Background moving text */
+    .background-text {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(calc(-50% - 20%), -50%);
+      white-space: nowrap;
+      font-size: 8vw; /* responsive font size */
+      font-weight: 900;
+      letter-spacing: 0.7vw;
+      color: transparent;
+      background: linear-gradient(90deg, #ff007f, #ff66b2, #ff007f);
+      -webkit-background-clip: text;
+      background-clip: text;
+      opacity: 0.3;
+      user-select: none;
+      pointer-events: none;
+      filter: drop-shadow(0 0 6px #ff007f88);
+      animation: slideBackText 15s ease-in-out infinite;
+      z-index: 0;
+      max-width: 100vw;
+      overflow: hidden;
+    }
+
+    @keyframes slideBackText {
+      0%, 100% {
+        transform: translate(calc(-50% - 20%), -50%) scale(1);
+        opacity: 0.3;
+      }
+      50% {
+        transform: translate(calc(-50% - 40%), -50%) scale(1.1);
+        opacity: 0.5;
+      }
+    }
+
+    header {
+      position: relative;
+      background-color: #d81b60;
+      color: white;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      z-index: 10;
+    }
+
+    /* Animate J.O. ENTERPRISES text size */
+    @keyframes pulseText {
+      0%, 100% {
+        font-size: 2.5rem;
+      }
+      50% {
+        font-size: 3.5rem;
+      }
+    }
+
+    header h1 {
+      animation: pulseText 4s ease-in-out infinite;
+      font-weight: 900;
+      font-size: 2.5rem;
+      line-height: 1.2;
+    }
+
+    .container {
+      padding: 2rem 1rem;
+      max-width: 1100px;
+      margin: auto;
+      position: relative;
+      z-index: 10;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .intro p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: white;
+      padding: 1.25rem 1rem;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
+      cursor: default;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      margin-bottom: 0.75rem;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+
+    .order-section {
+      margin-top: 3rem;
+      text-align: center;
+      background-color: #fff0f5;
+      padding: 2rem 1rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .order-section h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #d81b60;
+    }
+
+    .order-section p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .order-section form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .order-section input,
+    .order-section textarea {
+      padding: 0.75rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      resize: vertical;
+      font-family: inherit;
+    }
+
+    .order-section button {
+      background-color: #d81b60;
+      color: white;
+      padding: 0.85rem 0;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .order-section button:hover {
+      background-color: #ad1457;
+    }
+
+    .order-section a {
+      display: inline-block;
+      margin: 0.5rem 0.75rem 0 0.75rem;
+      padding: 0.7rem 2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      color: white;
+      background-color: #d81b60;
+      transition: background-color 0.3s ease;
+      font-weight: 700;
+      font-size: 1rem;
+      user-select: none;
+    }
+
+    .order-section a:hover {
+      background-color: #ad1457;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.25rem 1rem;
+      font-size: 0.9rem;
+      background-color: #f1f1f1;
+      margin-top: 3rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .intro p {
+        font-size: 1.1rem;
+      }
+      .order-section {
+        padding: 1.5rem 1rem;
+        max-width: 100%;
+      }
+      .order-section h2 {
+        font-size: 1.6rem;
+      }
+      .order-section a {
+        padding: 0.65rem 1.5rem;
+        font-size: 0.95rem;
+      }
+      .background-text {
+        font-size: 14vw;
+        letter-spacing: 0.4vw;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+      .intro p {
+        font-size: 1rem;
+      }
+      .products {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      }
+      .card img {
+        width: 50px;
+        height: 50px;
+      }
+      .order-section h2 {
+        font-size: 1.4rem;
+      }
+      .order-section a {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.9rem;
+      }
+      .background-text {
+        font-size: 18vw;
+        letter-spacing: 0.2vw;
+      }
+    }
+  </style>
+  <script>
+    function sendOrderViaWhatsApp() {
+      const name = document.getElementById('name').value.trim();
+      const item = document.getElementById('item').value.trim();
+      const location = document.getElementById('location').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const notes = document.getElementById('notes').value.trim();
+
+      if (!name || !item || !location || !phone) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+
+      const message = `Hello, my name is ${name}. I would like to order the following item(s): ${item}. My location is ${location} and my phone number is ${phone}. Additional notes: ${notes}`;
+      const encodedMessage = encodeURIComponent(message);
+
+      // Open WhatsApp
+      window.open(`https://wa.me/255717900916?text=${encodedMessage}`, '_blank');
+      // Open Email
+      window.open(`mailto:lesnedycharles@gmail.com?subject=Stationery Order from ${name}&body=${encodedMessage}`, '_blank');
+      // Open SMS
+      window.open(`sms:+255755019307?body=${encodedMessage}`, '_blank');
+    }
+  </script>
+</head>
+<body>
+  <div class="background-text">KARIBU SANA MTEJA WETU</div>
+
+  <header>
+    <h1>J.O. ENTERPRISES</h1>
+    <p>Your One-Stop Stationery Shop in Uhindini, Mbeya Mjini</p>
+  </header>
+
+  <div class="container">
+    <div class="intro">
+      <p>TUTEMBELE LEO J.O ENTERPRISES NA UJIPATIE KILA KITU UNACHOHITAJI KATIKA OFISI YAKO,SHULE YAKO AU MATUMIZI YAKO BINAFSI:</p>
+    </div>
+
+    <!-- Inside the <body> element, replace the entire <div class="products">...</div> block with the following: -->
+
+<div class="products" style="margin-bottom: 2rem;">
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/3043/3043911.png" alt="Kalamu" />
+      <h3>Kalamu (Pen)</h3>
+    </div>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1537/1537483.png" alt="Daftari" />
+      <h3>Daftari (Notebook)</h3>
+    </div>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/479/479915.png" alt="Wino wa Printer" />
+      <h3>Wino wa Printer</h3>
+    </div>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/4712/4712920.png" alt="Stapler" />
+      <h3>Stapler</h3>
+    </div>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/297/297411.png" alt="A4 Papers" />
+      <h3>Karatasi za Kuchapisha (A4 Rim)</h3>
+    </div>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2921/2921822.png" alt="Uchapishaji" />
+      <h3>Uchapishaji wa Nyaraka</h3>
+    </div>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910791.png" alt="Scanning" />
+      <h3>Scanning ya Nyaraka</h3>
+    </div>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/3523/3523063.png" alt="Photocopy" />
+      <h3>Photocopy ya Nyaraka</h3>
+    </div>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2921/2921820.png" alt="Binding" />
+      <h3>Kufunga Nyaraka (Binding)</h3>
+    </div>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/974/974104.png" alt="Lamination" />
+      <h3>Lamination</h3>
+    </div>
+  </div>
+  
+      
+        <!-- Orodha ya Huduma za Stationary -->
+        
+      
+
+    <div class="order-section">
+      <h2>Fanya Oda yako hapa</h2>
+      <p>Fanya usajili hapa kuweka Oda:</p>
+      <form onsubmit="event.preventDefault(); sendOrderViaWhatsApp();">
+        <input type="text" id="name" placeholder="Jina lako" required />
+        <input type="text" id="item" placeholder="Vitu unavyohitaji" required />
+        <input type="text" id="location" placeholder="Sehemu uliopo" required />
+        <input type="tel" id="phone" placeholder="Number yako ya simu" required />
+        <textarea id="notes" rows="4" placeholder="Maelezo zaidi"></textarea>
+        <button type="submit">Tuma Oda</button>
+      </form>
+      <p>Wasiliana na sis kwa:</p>
+      <a href="https://wa.me/255717900916" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a href="mailto:lesnedycharles@gmail.com">Email</a>
+      <a href="sms:+255755019307">Tutumie sms</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>Location: Uhindini, Mbeya Mjini | &copy; 2025 J.O. ENTERPRISES</p>
+  </footer>
+</body>
+</html>
