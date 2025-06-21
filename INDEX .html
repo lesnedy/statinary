@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SAM LISHE - Vyakula vya Mifugo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, silver, #4CAF50, gold);
+      background-size: 300% 300%;
+      animation: gradientMove 10s ease infinite;
+      color: #333;
+    }
+
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    header {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(0,0,0,0.3);
+      animation: slideLeftRight 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes slideLeftRight {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(30px); }
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url('https://cdn.pixabay.com/photo/2017/03/28/12/10/corn-2180879_1280.jpg') no-repeat center center/cover;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2.3rem;
+      max-width: 700px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+    }
+
+    .products, .form-section {
+      padding: 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .products h3, .form-section h3 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #2e7d32;
+      font-size: 1.8rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    form {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    form input, form select, form button {
+      width: 100%;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    form button {
+      background: #4CAF50;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background: #388e3c;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      font-weight: 500;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+      .hero h2 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>SAM LISHE</h1>
+  <p style="color:#fff; font-size:1.1rem;">Lishe Bora kwa Mifugo - Karibu Lupeta, Mbeya</p>
+</header>
+
+<section class="hero">
+  <h2>Chagua Chakula Bora kwa Kuku, Nguruwe na Ng’ombe!</h2>
+</section>
+
+<section class="products">
+  <h3>Bidhaa Zetu</h3>
+  <div class="grid">
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2017/03/28/12/10/corn-2180879_1280.jpg" alt="Pumba ya Mahindi">
+      <h4>Pumba ya Mahindi</h4>
+    </div>
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2018/10/07/18/32/rice-3731568_1280.jpg" alt="Pumba ya Mpunga">
+      <h4>Pumba ya Mpunga</h4>
+    </div>
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2020/07/04/20/54/cow-5371194_1280.jpg" alt="Mashudu">
+      <h4>Mashudu</h4>
+    </div>
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2017/06/01/18/39/shrimp-2365806_1280.jpg" alt="Uduvi">
+      <h4>Uduvi</h4>
+    </div>
+  </div>
+</section>
+
+<section class="form-section">
+  <h3>Weka Oda Yako Hapa</h3>
+  <form id="orderForm">
+    <input type="text" id="name" placeholder="Jina lako" required />
+    <input type="text" id="location" placeholder="Mahali ulipo" required />
+    <select id="product" required>
+      <option value="">Chagua Chakula</option>
+      <option value="Pumba ya Mahindi">Pumba ya Mahindi</option>
+      <option value="Pumba ya Mpunga">Pumba ya Mpunga</option>
+      <option value="Mashudu">Mashudu</option>
+      <option value="Uduvi">Uduvi</option>
+    </select>
+    <input type="number" id="quantity" placeholder="Kiasi (kg)" required />
+    <button type="submit">Tuma Oda</button>
+  </form>
+</section>
+
+<footer>
+  <p>Wasiliana nasi: WhatsApp: 0743 080 068 | SMS: 0716 140 744</p>
+</footer>
+
+<script>
+  document.getElementById('orderForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value;
+    const location = document.getElementById('location').value;
+    const product = document.getElementById('product').value;
+    const quantity = document.getElementById('quantity').value;
+
+    const message = `Habari, jina langu ni ${name}. Napenda kuagiza:\nBidhaa: ${product}\nKiasi: ${quantity} kg\nMahali: ${location}`;
+    
+    // WhatsApp
+    const phoneWhatsApp = '255743080068';
+    const whatsappLink = `https://wa.me/${phoneWhatsApp}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappLink, '_blank');
+
+    // SMS
+    const phoneSMS = '0716140744';
+    const smsLink = `sms:${phoneSMS}?body=${encodeURIComponent(message)}`;
+    window.open(smsLink, '_blank');
+  });
+</script>
+
+</body>
+</html>
